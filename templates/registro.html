@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+<title>Registro - SIGFE</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f7fc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.card{
+    background:white;
+    width:450px;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 0 20px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    color:#0b3d91;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#0b3d91;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#072c6b;
+}
+
+a{
+    text-decoration:none;
+    color:#0b3d91;
+}
+
+.volver{
+    text-align:center;
+    margin-top:15px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>Registro de Usuario</h1>
+
+<form method="POST">
+
+<input type="text" name="cedula" placeholder="Cédula" required>
+
+<input type="text" name="nombre" placeholder="Nombres" required>
+
+<input type="text" name="apellido" placeholder="Apellidos" required>
+
+<input type="text" name="telefono" placeholder="Teléfono" required>
+
+<input type="email" name="correo" placeholder="Correo electrónico" required>
+
+<input type="password" name="clave" placeholder="Clave" required>
+
+<button type="submit">
+Registrarse
+</button>
+
+</form>
+
+<div class="volver">
+<a href="/login">Volver al Login</a>
+</div>
+
+</div>
+
+</body>
+</html>

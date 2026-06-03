@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+<title>Facturas Registradas - SIGFE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef3ff;
+    display:flex;
+    min-height:100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+    width:250px;
+    background:#0b3d91;
+    padding:20px;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+}
+
+.sidebar a:hover{
+    background:#174ea6;
+}
+
+/* ================= MAIN ================= */
+.main{
+    flex:1;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+    color:#0b3d91;
+    margin-bottom:20px;
+}
+
+/* ================= TABLE ================= */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#0b3d91;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+.btnEliminar{
+    background:#dc3545;
+    color:white;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:6px;
+}
+
+.btnEliminar:hover{
+    background:#b02a37;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ORIGINAL ================= -->
+<div class="sidebar">
+
+    <div class="logo">
+        <img src="{{ url_for('static', filename='logo.png') }}" width="120">
+    </div>
+
+    <a href="/dashboard">📊 Dashboard</a>
+    <a href="/factura">🧾 Registrar Factura</a>
+    <a href="/facturas">📄 Facturas</a>
+    <a href="/perfil">👤 Perfil</a>
+    <a href="/ayuda">💬 Ayuda</a>
+    <a href="/logout">🚪 Cerrar Sesión</a>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+<div class="main">
+
+<div class="card">
+
+<h1>📄 Facturas Registradas</h1>
+
+{% if facturas %}
+
+<table>
+
+<tr>
+<th>Número</th>
+<th>Tienda</th>
+<th>Total</th>
+<th>Base</th>
+<th>IVA</th>
+<th>Descuento</th>
+<th>Total Final</th>
+<th>⭐</th>
+<th>Acción</th>
+</tr>
+
+{% for factura in facturas %}
+
+<tr>
+<td>{{ factura.numero }}</td>
+<td>{{ factura.tienda }}</td>
+<td>${{ factura.total }}</td>
+<td>${{ factura.base }}</td>
+<td>${{ factura.iva }}</td>
+<td>${{ factura.descuento }}</td>
+<td>${{ factura.total_final }}</td>
+
+<!-- ⭐ FAVORITO -->
+<td>
+<a href="/favorita/{{ loop.index0 }}"
+style="font-size:22px;text-decoration:none;">
+{% if factura.favorita %}
+⭐
+{% else %}
+☆
+{% endif %}
+</a>
+</td>
+
+<!-- 🗑 ELIMINAR -->
+<td>
+<a href="/eliminar/{{ loop.index0 }}"
+class="btnEliminar"
+onclick="return confirm('⚠️ ¿Seguro que deseas eliminar esta factura?');">
+🗑
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<p>No hay facturas registradas.</p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+</html>

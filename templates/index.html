@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+<title>SIGFE</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f7fc;
+}
+
+nav{
+    background:#0b3d91;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.hero{
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.contenido{
+    max-width:700px;
+}
+
+h1{
+    font-size:50px;
+    color:#0b3d91;
+}
+
+p{
+    font-size:18px;
+    color:#555;
+}
+
+.botones{
+    margin-top:30px;
+}
+
+.btn{
+    text-decoration:none;
+    background:#0b3d91;
+    color:white;
+    padding:15px 25px;
+    border-radius:8px;
+    margin:10px;
+}
+
+.btn:hover{
+    background:#072c6b;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="logo">
+
+<img
+src="{{ url_for('static', filename='logo.png') }}"
+width="120">
+
+</div>
+
+<section class="hero">
+
+<div class="contenido">
+
+<h1>Bienvenido a SIGFE</h1>
+
+<p>
+Sistema Inteligente de Gestión de Facturas Electrónicas.
+Organiza, consulta y administra tus facturas fácilmente.
+</p>
+
+<div class="botones">
+
+<a href="/login" class="btn">
+Iniciar Sesión
+</a>
+
+<a href="/registro" class="btn">
+Registrarse
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+    {
+        "cedula": "1031812849",
+        "nombre": "JUAN",
+        "apellido": "GAITAN",
+        "telefono": "3238104748",
+        "correo": "juanestebangaitanmendez64@gmail.com",
+        "clave": "Gaitan1245."
+    },
+    {
+        "cedula": "1010101010",
+        "nombre": "Carlos",
+        "apellido": "Mazabel",
+        "telefono": "3181136919",
+        "correo": "carlos@gmail.com",
+        "clave": "carlos123"
+    }
+]

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+<title>SIGFE Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef3ff;
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:250px;
+    background:linear-gradient(180deg,#0b3d91,#174ea6);
+    padding:30px 20px;
+    color:white;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+.main{
+    flex:1;
+    padding:40px;
+}
+
+.titulo{
+    font-size:35px;
+    font-weight:700;
+    color:#0b3d91;
+    margin-bottom:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#666;
+    margin-bottom:10px;
+    font-size:16px;
+}
+
+.numero{
+    font-size:30px;
+    font-weight:700;
+    color:#0b3d91;
+}
+
+.bienvenida{
+    margin-top:30px;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.bienvenida h2{
+    color:#0b3d91;
+    margin-bottom:10px;
+}
+
+.bienvenida p{
+    color:#555;
+    line-height:1.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+<img
+src="{{ url_for('static', filename='logo.png') }}"
+width="120">
+
+</div>
+
+<a href="/dashboard">📊 Dashboard</a>
+<a href="/factura">🧾 Registrar Factura</a>
+<a href="/facturas">📄 Facturas</a>
+<a href="/perfil">👤 Perfil</a>
+<a href="/ayuda">💬 Ayuda</a>
+<a href="/logout">🚪 Cerrar Sesión</a>
+
+</div>
+
+<div class="main">
+
+<h1 class="titulo">
+📊 Dashboard
+</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Facturas Registradas</h3>
+<div class="numero">
+{{ total_facturas }}
+</div>
+</div>
+
+<div class="card">
+<h3>Total Gastado</h3>
+<div class="numero">
+${{ total_gastado }}
+</div>
+</div>
+
+<div class="card">
+<h3>Descuento Acumulado</h3>
+<div class="numero">
+${{ total_descuento }}
+</div>
+</div>
+
+<div class="card">
+<h3>Tienda Favorita</h3>
+<div class="numero">
+{{ tienda_favorita }}
+</div>
+</div>
+
+</div>
+
+<div class="bienvenida">
+
+<h2>Bienvenido a SIGFE</h2>
+
+<p>
+Sistema Inteligente de Gestión de Facturas Electrónicas.
+Aquí podrás registrar tus facturas, consultar tus gastos,
+llevar un control financiero y visualizar estadísticas de tus compras.
+</p>
+
+</div>
+
+</div>
+
+</body>
+</html>

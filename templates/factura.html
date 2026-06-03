@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+<title>Registrar Factura - SIGFE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef3ff;
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:250px;
+    background:#0b3d91;
+    padding:20px;
+}
+
+.logo{
+    color:white;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+}
+
+.sidebar a:hover{
+    background:#174ea6;
+}
+
+.main{
+    flex:1;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.1);
+    max-width:700px;
+}
+
+h1{
+    color:#0b3d91;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+    color:#0b3d91;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#0b3d91;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#174ea6;
+}
+
+.info{
+    background:#f7f9ff;
+    padding:15px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.info p{
+    margin:8px 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+<img
+src="{{ url_for('static', filename='logo.png') }}"
+width="120">
+
+</div>
+
+<a href="/dashboard">📊 Dashboard</a>
+<a href="/factura">🧾 Registrar Factura</a>
+<a href="/facturas">📄 Facturas</a>
+<a href="/perfil">👤 Perfil</a>
+<a href="/ayuda">💬 Ayuda</a>
+<a href="/logout">🚪 Cerrar Sesión</a>
+
+</div>
+
+<div class="main">
+
+<div class="card">
+
+<h1>🧾 Registrar Factura</h1>
+
+<form method="POST">
+
+<label>Número de Factura</label>
+<input
+type="number"
+name="numero"
+required
+placeholder="Ej: 1001">
+
+<label>Nombre de la Tienda</label>
+<input
+type="text"
+name="tienda"
+required
+placeholder="Ej: Éxito">
+
+<label>Valor Total de la Factura</label>
+<input
+type="number"
+step="0.01"
+name="total"
+required
+placeholder="Ej: 50000">
+
+<button type="submit">
+💾 Registrar Factura
+</button>
+
+</form>
+
+<div class="info">
+
+<h3>ℹ Información</h3>
+
+<p>✔ El total ingresado corresponde al valor final pagado.</p>
+
+<p>✔ El sistema calcula automáticamente la base e IVA.</p>
+
+<p>✔ Se calcula el descuento acumulado para el usuario.</p>
+
+<p>✔ La factura queda almacenada localmente en JSON.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

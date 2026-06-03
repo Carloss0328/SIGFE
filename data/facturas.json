@@ -1,0 +1,13 @@
+[
+    {
+        "cedula": "1010101010",
+        "numero": "10202020",
+        "tienda": "Tada",
+        "total": 51515.0,
+        "base": 43289.92,
+        "iva": 8225.08,
+        "descuento": 515.15,
+        "total_final": 50999.85,
+        "favorita": true
+    }
+]

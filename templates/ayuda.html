@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+<title>Centro de Ayuda - SIGFE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef3ff;
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:250px;
+    background:#0b3d91;
+    padding:20px;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:#174ea6;
+}
+
+.main{
+    flex:1;
+    padding:30px;
+}
+
+h1{
+    color:#0b3d91;
+    margin-bottom:25px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.pregunta{
+    color:#0b3d91;
+    font-weight:bold;
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.card p{
+    color:#444;
+    line-height:1.6;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- MENÚ LATERAL -->
+<div class="sidebar">
+
+    <div class="logo">
+        <img
+        src="{{ url_for('static', filename='logo.png') }}"
+        width="120">
+    </div>
+
+    <a href="/dashboard">📊 Dashboard</a>
+    <a href="/factura">🧾 Registrar Factura</a>
+    <a href="/facturas">📄 Facturas</a>
+    <a href="/perfil">👤 Perfil</a>
+    <a href="/ayuda">💬 Ayuda</a>
+    <a href="/logout">🚪 Cerrar Sesión</a>
+
+</div>
+
+<!-- CONTENIDO -->
+<div class="main">
+
+    <h1>💬 Centro de Ayuda SIGFE</h1>
+
+    {% for item in preguntas %}
+
+    <div class="card">
+
+        <div class="pregunta">
+            {{ item.pregunta }}
+        </div>
+
+        <p>
+            {{ item.respuesta }}
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
